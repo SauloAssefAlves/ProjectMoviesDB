@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes as RoutesAll, Route } from "react-router-dom";
+import * as Pages from "./Pages";
+import Body from "./Pages/Commons/Body";
+import Router from "./Router";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RoutesAll>
+      <Route path="/" element={<Body />}>
+        {Router.map((page) => <Route key={page.name} path={page.path} element={page.element} />)}
+      </Route>
+      <Route path="*" element={<Pages.NotFound />} />
+    </RoutesAll>
   );
 }
-
-export default App;
