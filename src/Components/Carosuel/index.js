@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/react/solid'
 
-export default function Carousel() {
+export default function Carousel({ imgs }) {
   const [buttonLeftAppear, setButtonLeftApear] = useState(false)
   const [buttonRigthAppear, setButtonRigthApear] = useState(true)
   const carousel = useRef()
@@ -94,20 +94,9 @@ export default function Carousel() {
               <ChevronLeftIcon className="w-16 hover:w-[67px] duration-200" />
             </div>
           </button>
-          <div className="p-2">{img()}</div>
-          <div className="p-2">{img()}</div>
-          <div className="p-2">{img()}</div>
-          <div className="p-2">{img()}</div>
-          <div className="p-2">{img()}</div>
-          <div className="p-2">{img()}</div>
-          <div className="p-2">{img()}</div>
-          <div className="p-2">{img()}</div>
-          <div className="p-2">{img()}</div>
-          <div className="p-2">{img()}</div>
-          <div className="p-2">{img()}</div>
-          <div className="p-2">{img()}</div>
-          <div className="p-2">{img()}</div>
-          <div className="p-2">{img()}</div>
+          {imgs.map((filmes) => (
+            <div className="p-2">{filmes}</div>
+          ))}
 
           <button
             disabled={!buttonRigthAppear}
@@ -124,4 +113,22 @@ export default function Carousel() {
       </div>
     </div>
   )
+}
+
+Carousel.defaultProps = {
+  imgs: [
+    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
+    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
+    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
+    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
+    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
+    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
+    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
+    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
+    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
+    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
+    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
+    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
+    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
+  ],
 }
