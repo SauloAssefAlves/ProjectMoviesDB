@@ -25,8 +25,6 @@ export default function Carousel() {
     carousel.current.addEventListener('mousemove', (e) => {
       if (!isDown.current) return
       e.preventDefault()
-      console.log('aaa')
-
       const x = e.pageX - carousel.current.offsetLeft
 
       const walk = (x - startX.current) * 2
