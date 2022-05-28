@@ -8,7 +8,6 @@ export default function Carousel({ imgs }) {
   const scrollLeft = useRef()
   const startX = useRef()
   const isDown = useRef(false)
-  let a = 0
 
   useEffect(() => {
     carousel.current.addEventListener('mousedown', (e) => {
@@ -40,7 +39,6 @@ export default function Carousel({ imgs }) {
         setButtonRigthApear(true)
       }
       if (carousel.current.scrollLeft <= 0) {
-        console.log(carousel.current.scrollLeft - carousel.current.offsetWidth)
         setButtonLeftApear(false)
       } else {
         setButtonLeftApear(true)
@@ -88,14 +86,14 @@ export default function Carousel({ imgs }) {
             onClick={handleClickLeft}
             className={`${
               !buttonLeftAppear && 'opacity-0'
-            } absolute text-neutral-900 -left-7 origin-top pr-2  -translate-y-1/2 top-1/2 duration-200  `}
+            } absolute text-neutral-900 -left-6 origin-top pr-2  -translate-y-1/2 top-1/2 duration-200  `}
           >
-            <div className="  bg-slate-300 rounded-xl  duration-200">
-              <ChevronLeftIcon className="w-16 hover:w-[67px] duration-200" />
-            </div>
+            <ChevronLeftIcon className="w-20  text-gray_text hover:text-gray_text_hover duration-200" />
           </button>
-          {imgs.map((filmes) => (
-            <div className="p-2">{filmes}</div>
+          {imgs.map((filmes, index) => (
+            <div key={filmes.id} className="px-2 duration-200">
+              {filmes.imgs}
+            </div>
           ))}
 
           <button
@@ -103,11 +101,9 @@ export default function Carousel({ imgs }) {
             onClick={handleClickRight}
             className={`${
               !buttonRigthAppear && 'opacity-0'
-            } absolute text-neutral-900 -right-7 origin-top  -translate-y-1/2 top-1/2 duration-200`}
+            } absolute text-neutral-900 -right-6 origin-top  -translate-y-1/2 top-1/2 duration-200`}
           >
-            <div className="bg-slate-300 rounded-xl   flex-1 duration-200">
-              <ChevronRightIcon className="w-16 hover:w-[67px]  duration-200" />
-            </div>
+            <ChevronRightIcon className="w-20  hover:text-gray_text_hover text-gray_text duration-200" />
           </button>
         </div>
       </div>
