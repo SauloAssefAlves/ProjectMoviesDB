@@ -112,15 +112,17 @@ export default function Filmes() {
   })
 
   return (
-    <div className="flex flex-col items-center w-full h-full">
-      <div className="w-full  ">
+    <div className="flex flex-col items-start flex-1 max-w-full ">
+      <p className="px-12">FILMES</p>
+      <div className="max-w-full ">
         {movies.length === 0 ? (
           <SkeletonCarosuel />
         ) : (
           <Carousel imgs={loadImgsMovies()} />
         )}
       </div>
-      <div className="w-full  ">
+      <p className="px-12">TV</p>
+      <div className="max-w-full  ">
         {movies.length === 0 ? (
           <SkeletonCarosuel />
         ) : (
