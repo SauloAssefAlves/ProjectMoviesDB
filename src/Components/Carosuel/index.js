@@ -79,7 +79,7 @@ export default function Carousel({ imgs }) {
       <div className=" px-10 py-2 w-full flex items-stretch ">
         <div
           ref={carousel}
-          className="flex flex-1 h-full bg-white rounded-xl overflow-x-hidden scroll-smooth"
+          className="flex flex-1 h-full bg-transparent rounded-xl overflow-x-hidden scroll-smooth"
         >
           <button
             disabled={!buttonLeftAppear}
@@ -113,18 +113,71 @@ export default function Carousel({ imgs }) {
 
 Carousel.defaultProps = {
   imgs: [
-    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
-    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
-    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
-    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
-    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
-    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
-    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
-    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
-    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
-    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
-    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
-    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
-    <div className="flex w-56 h-96 rounded bg-slate-500 items-center justify-center" />,
+    {
+      id: 1,
+      imgs: (
+        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+      ),
+    },
+    {
+      id: 2,
+      imgs: (
+        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+      ),
+    },
+    {
+      id: 3,
+      imgs: (
+        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+      ),
+    },
+    {
+      id: 4,
+      imgs: (
+        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+      ),
+    },
+    {
+      id: 5,
+      imgs: (
+        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+      ),
+    },
+    {
+      id: 6,
+      imgs: (
+        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+      ),
+    },
+    {
+      id: 7,
+      imgs: (
+        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+      ),
+    },
+    {
+      id: 8,
+      imgs: (
+        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+      ),
+    },
+    {
+      id: 9,
+      imgs: (
+        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+      ),
+    },
+    {
+      id: 10,
+      imgs: (
+        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+      ),
+    },
+    {
+      id: 11,
+      imgs: (
+        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+      ),
+    },
   ],
 }

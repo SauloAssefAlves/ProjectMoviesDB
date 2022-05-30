@@ -1,7 +1,9 @@
 /* eslint-disable react/jsx-curly-brace-presence */
-import { useCallback, useEffect, useRef, useState } from 'react'
-import Carousel from '../../Components/Carosuel'
+import { useCallback, useEffect, lazy, useState, Suspense } from 'react'
+import SkeletonCarosuel from '../../Components/Carosuel/skeleton'
 import apiMovies from '../../services/apiMovies'
+
+const Carousel = lazy(() => import('../../Components/Carosuel'))
 
 //{``https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filme.title}
 export default function Filmes() {
@@ -18,8 +20,6 @@ export default function Filmes() {
       })
       .then((res) => {
         setMovies(res.data.results)
-
-        console.log('RES ', res)
       })
       .catch((err) => {
         console.log('ERR ', err)
@@ -35,10 +35,10 @@ export default function Filmes() {
         imgs: (
           <div
             key={movie.id}
-            className="flex w-40  relative rounded bg-slate-500 items-center justify-center group  "
+            className="flex w-52  relative rounded bg-slate-500 items-center justify-center group  "
           >
             <img
-              className="rounded w-56  h-64 duration-500"
+              className="rounded w-56  h-72 duration-500"
               src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
               alt={movie.title}
             />
@@ -51,14 +51,17 @@ export default function Filmes() {
         ),
       }
     })
-    console.log('ARRAYFILMES ', arrayImgs)
     return arrayImgs
   })
 
   return (
     <div className="flex flex-col items-center w-full h-full">
-      <div className="w-full px-10">
-        <Carousel imgs={loadImgs()} />
+      <div className="w-full px-10 ">
+        {movies.length === 0 ? (
+          <SkeletonCarosuel />
+        ) : (
+          <Carousel imgs={loadImgs()} />
+        )}
       </div>
     </div>
   )
