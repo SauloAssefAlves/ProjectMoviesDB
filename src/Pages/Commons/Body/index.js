@@ -4,7 +4,7 @@ import Header from '../Header'
 
 export default function Body() {
   return (
-    <div className="w-screen h-screen">
+    <div className="w-screen h-screen overflow-x-hidden">
       <Header />
       <Container>
         <Outlet />
