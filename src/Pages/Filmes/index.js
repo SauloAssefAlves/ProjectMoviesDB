@@ -121,7 +121,7 @@ export default function Filmes() {
           <Carousel imgs={loadImgsMovies()} />
         )}
       </div>
-      <p className="px-12">TV</p>
+      <p className="pl-12">TV</p>
       <div className="max-w-full  ">
         {movies.length === 0 ? (
           <SkeletonCarosuel />
