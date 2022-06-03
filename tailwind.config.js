@@ -3,8 +3,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gray_text: '#3e444d',
-        gray_text_hover: '#31568c',
+        background: '#001E3C',
+        container: '#0A1929',
+        neutral: '#071A2F',
+        text: '#D5E8FC',
+        text_hover: '#071A2F',
+        hover: '#334155',
       },
       fontFamily: {
         body: ['Source Sans Pro'],

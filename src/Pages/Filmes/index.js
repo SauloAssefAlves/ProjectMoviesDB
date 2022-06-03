@@ -58,6 +58,7 @@ export default function Filmes() {
 
   const loadImgsMovies = useCallback(() => {
     let cache = []
+    console.log(movies)
     let arrayImgs = movies.map((movie) => {
       cache.push(`https://image.tmdb.org/t/p/original/${movie.poster_path}`)
       return {
@@ -65,7 +66,7 @@ export default function Filmes() {
         imgs: (
           <div
             key={movie.id}
-            className="flex w-52  relative rounded bg-slate-500 items-center justify-center group  "
+            className="flex w-52  relative rounded bg-zinc-400 items-center justify-center group  "
           >
             <img
               className="rounded w-56  h-72 duration-500"
@@ -92,7 +93,7 @@ export default function Filmes() {
         imgs: (
           <div
             key={serie.id}
-            className="flex w-52  relative rounded bg-slate-500 items-center justify-center group  "
+            className="flex w-52  relative rounded bg-zinc-400 items-center justify-center group  "
           >
             <img
               className="rounded w-56  h-72 duration-500"

@@ -2,8 +2,8 @@ import * as Pages from '../../Pages'
 
 const links = [
   {
-    name: 'Filmes',
-    path: '1',
+    name: 'Filmes/Tv ',
+    path: 'filmes&TvShows',
     element: <Pages.Filmes />,
   },
   {

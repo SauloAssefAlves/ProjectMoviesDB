@@ -5,11 +5,15 @@ export default function Carousel({ imgs }) {
   const [buttonLeftAppear, setButtonLeftApear] = useState(false)
   const [buttonRigthAppear, setButtonRigthApear] = useState(true)
   const carousel = useRef()
+  const isDown = useRef(false)
   const scrollLeft = useRef()
   const startX = useRef()
-  const isDown = useRef(false)
+  //const isDown = useRef(false)
 
   useEffect(() => {
+    carousel.current.addEventListener('ondrag', (e) => {
+      console.log('AQUIAUIQ', e)
+    })
     carousel.current.addEventListener('mousedown', (e) => {
       isDown.current = true
       startX.current = e.pageX - carousel.current.offsetLeft
@@ -75,7 +79,7 @@ export default function Carousel({ imgs }) {
   }
   return (
     //xl:w-[78rem] lg:w-[63rem] md:w-[48rem] sm:w-[33rem] w-[18rem]
-    <div className="relative w-full ">
+    <div className="relative w-full">
       <div className=" px-10 py-2 w-full flex items-stretch ">
         <div
           ref={carousel}
