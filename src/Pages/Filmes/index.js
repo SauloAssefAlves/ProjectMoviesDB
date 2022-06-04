@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-curly-brace-presence */
 import { useCallback, useEffect, lazy, useState, Suspense } from 'react'
-import SkeletonCarosuel from '../../Components/Carosuel/skeleton'
 import apiMovies from '../../services/apiMovies'
 
-const Carousel = lazy(() => import('../../Components/Carosuel'))
+import Carousel from '../../Components/Carosuel'
 
 //{``https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filme.title}
 export default function Filmes() {
@@ -56,78 +55,52 @@ export default function Filmes() {
       })
   }, [])
 
-  const loadImgsMovies = useCallback(() => {
-    let cache = []
-    console.log(movies)
-    let arrayImgs = movies.map((movie) => {
-      cache.push(`https://image.tmdb.org/t/p/original/${movie.poster_path}`)
-      return {
-        id: movie.id,
-        imgs: (
-          <div
-            key={movie.id}
-            className="flex w-52  relative rounded bg-zinc-400 items-center justify-center group  "
-          >
-            <img
-              className="rounded w-56  h-72 duration-500"
-              src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-              alt={movie.title}
-            />
-            <div className="flex items-center rounded justify-center w-full h-full absolute backdrop-blur-[2px] opacity-0 group-hover:opacity-100 duration-500">
-              <button className="font-body font-semibold text-white  text-xl">
-                Detalhar
-              </button>
-            </div>
-          </div>
-        ),
-      }
-    })
-    return arrayImgs
-  })
-  const loadImgsSeries = useCallback(() => {
-    let cache = []
-    let arrayImgs = series.map((serie) => {
-      cache.push(`https://image.tmdb.org/t/p/original/${serie.poster_path}`)
-      return {
-        id: serie.id,
-        imgs: (
-          <div
-            key={serie.id}
-            className="flex w-52  relative rounded bg-zinc-400 items-center justify-center group  "
-          >
-            <img
-              className="rounded w-56  h-72 duration-500"
-              src={`https://image.tmdb.org/t/p/original/${serie.poster_path}`}
-              alt={serie.title}
-            />
-            <div className="flex items-center rounded justify-center w-full h-full absolute backdrop-blur-[2px] opacity-0 group-hover:opacity-100 duration-500">
-              <button className="font-body font-semibold text-white  text-xl">
-                Detalhar
-              </button>
-            </div>
-          </div>
-        ),
-      }
-    })
-    return arrayImgs
-  })
+  const loadImgs = useCallback((data) =>
+    data.map((movie) => ({
+      id: movie.id,
+      imgs: (
+        <button
+          onClick={() => {
+            console.log('CLicou', movie)
+          }}
+          key={movie.id}
+          className="  flex w-52 h-80 hover: relative rounded  items-center justify-center group  "
+        >
+          <img
+            className="transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500  rounded flex flex-1 items-stretch h-72  duration-500"
+            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+            alt={movie.title}
+          />
+        </button>
+      ),
+    }))
+  )
 
   return (
-    <div className="flex flex-col items-start flex-1 max-w-full ">
-      <p className="px-12">FILMES</p>
+    <div className="flex flex-col items-stretch justify-center flex-1 max-w-full ">
+      <div className="flex items-center justify-start">
+        <p className="font-title text-lg text-text d font-medium pl-12">
+          Filmes em Cartaz
+        </p>
+      </div>
+
       <div className="max-w-full ">
         {movies.length === 0 ? (
-          <SkeletonCarosuel />
+          <Carousel />
         ) : (
-          <Carousel imgs={loadImgsMovies()} />
+          <Carousel imgs={loadImgs(movies)} />
         )}
       </div>
-      <p className="pl-12">TV</p>
+      <div className="flex items-center justify-start">
+        <p className="font-title text-lg text-text d font-medium pl-12">
+          Tv Shows
+        </p>
+      </div>
       <div className="max-w-full  ">
         {movies.length === 0 ? (
-          <SkeletonCarosuel />
+          <Carousel />
         ) : (
-          <Carousel imgs={loadImgsSeries()} />
+          <Carousel imgs={loadImgs(series)} />
         )}
       </div>
     </div>

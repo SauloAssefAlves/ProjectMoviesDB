@@ -7,7 +7,7 @@ export default function Header({ children }) {
       <div className=" pl-10 flex items-center justify-center   h-14  ">
         <Link
           to="/"
-          className="text-blue-500 hover:text-neutral-100 duration-200 font-title font-bold text-2xl"
+          className="text-blue-500 hover:text-blue-400 duration-200 font-title font-bold text-2xl"
         >
           Project
         </Link>
@@ -18,9 +18,9 @@ export default function Header({ children }) {
               key={page.name}
               to={page.path}
               className=" font-body 
-                  font-semibold text-sm text-white hover:text-neutral-100 duration-200"
+                  font-semibold text-sm text-white hover:text-neutral-100 "
             >
-              <div className="text-center p-2 rounded-lg flex hover:bg-hover">
+              <div className="text-center p-2 rounded-lg flex hover:bg-hover duration-200">
                 {page.name}
               </div>
             </Link>
