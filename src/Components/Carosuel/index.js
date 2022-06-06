@@ -52,6 +52,8 @@ export default function Carousel({ imgs }) {
     })
   }, [])
 
+
+
   const handleClickRight = (e) => {
     e.preventDefault()
     setButtonLeftApear(true)

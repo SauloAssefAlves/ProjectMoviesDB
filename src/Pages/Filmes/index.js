@@ -3,11 +3,15 @@ import { useCallback, useEffect, lazy, useState, Suspense } from 'react'
 import apiMovies from '../../services/apiMovies'
 
 import Carousel from '../../Components/Carosuel'
+import Modal from '../../Components/Modal'
+import InfoModal from './InfoModal'
 
 //{``https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filme.title}
 export default function Filmes() {
   const [movies, setMovies] = useState([])
   const [series, setSeries] = useState([])
+  const [isOpenModal, setIsOpenModal] = useState(false)
+  const [details, setDetails] = useState({})
 
   useEffect(() => {
     const moviesPromise = new Promise((resolve, reject) => {
@@ -55,14 +59,17 @@ export default function Filmes() {
       })
   }, [])
 
+  const handleClickImg = (movieDetails) => {
+    setIsOpenModal(true)
+    setDetails(movieDetails)
+  }
+
   const loadImgs = useCallback((data) =>
     data.map((movie) => ({
       id: movie.id,
       imgs: (
         <button
-          onClick={() => {
-            console.log('CLicou', movie)
-          }}
+          onClick={() => handleClickImg(movie)}
           key={movie.id}
           className="  flex w-52 h-80 hover: relative rounded  items-center justify-center group  "
         >
@@ -78,6 +85,12 @@ export default function Filmes() {
 
   return (
     <div className="flex flex-col items-stretch justify-center flex-1 max-w-full ">
+      {isOpenModal && (
+        <Modal setIsOpen={setIsOpenModal}>
+          <InfoModal info={details} />
+        </Modal>
+      )}
+
       <div className="flex items-center justify-start">
         <p className="font-title text-lg text-text d font-medium pl-12">
           Filmes em Cartaz
