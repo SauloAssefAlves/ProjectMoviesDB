@@ -84,7 +84,7 @@ export default function Filmes() {
   )
 
   return (
-    <div className="flex flex-col items-stretch justify-center flex-1 max-w-full ">
+    <div className="flex flex-col justify-center max-w-full ">
       {isOpenModal && (
         <Modal setIsOpen={setIsOpenModal}>
           <InfoModal info={details} />

@@ -52,8 +52,6 @@ export default function Carousel({ imgs }) {
     })
   }, [])
 
-
-
   const handleClickRight = (e) => {
     e.preventDefault()
     setButtonLeftApear(true)
@@ -78,14 +76,16 @@ export default function Carousel({ imgs }) {
 
   return (
     <div
-      className={` relative px-10 w-full flex ${move && 'cursor-grabbing  '}`}
+      className={` relative px-10 w-full flex flex-1 ${
+        move && 'cursor-grabbing  '
+      }`}
     >
       <button
         disabled={!buttonLeftAppear}
         onClick={handleClickLeft}
         className={`${
           !buttonLeftAppear && 'opacity-0'
-        } absolute text-neutral-900 -left-6 origin-top pr-2  -translate-y-1/2 top-1/2 duration-200  `}
+        } absolute text-neutral-900 -left-6 origin-top pr-2 -translate-y-1/2 top-1/2 duration-200  `}
       >
         <ChevronLeftIcon className="w-20  text-hover hover:text-text duration-200" />
       </button>
@@ -124,67 +124,67 @@ Carousel.defaultProps = {
     {
       id: 1,
       imgs: (
-        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+        <div className="flex w-52 h-48 hover: relative rounded bg-gray-200 items-center justify-center group " />
       ),
     },
     {
       id: 2,
       imgs: (
-        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+        <div className="flex w-52 h-48 hover: relative rounded bg-gray-200 items-center justify-center group" />
       ),
     },
     {
       id: 3,
       imgs: (
-        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+        <div className="flex w-52 h-48 hover: relative rounded bg-gray-200 items-center justify-center group" />
       ),
     },
     {
       id: 4,
       imgs: (
-        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+        <div className="flex w-52 h-48 hover: relative rounded bg-gray-200 items-center justify-center group" />
       ),
     },
     {
       id: 5,
       imgs: (
-        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+        <div className="flex w-52 h-48 hover: relative rounded bg-gray-200 items-center justify-center group" />
       ),
     },
     {
       id: 6,
       imgs: (
-        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+        <div className="flex w-52 h-48 hover: relative rounded bg-gray-200 items-center justify-center group" />
       ),
     },
     {
       id: 7,
       imgs: (
-        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+        <div className="flex w-52 h-48 hover: relative rounded bg-gray-200 items-center justify-center group" />
       ),
     },
     {
       id: 8,
       imgs: (
-        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+        <div className="flex w-52 h-48 hover: relative rounded bg-gray-200 items-center justify-center group" />
       ),
     },
     {
       id: 9,
       imgs: (
-        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+        <div className="flex w-52 h-48 hover: relative rounded bg-gray-200 items-center justify-center group" />
       ),
     },
     {
       id: 10,
       imgs: (
-        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+        <div className="flex w-52 h-48 hover: relative rounded bg-gray-200 items-center justify-center group" />
       ),
     },
     {
       id: 11,
       imgs: (
-        <div className="flex w-52 h-72 blur-sm rounded bg-gray-200 animate-pulse items-center  justify-center" />
+        <div className="flex w-52 h-48 hover: relative rounded bg-gray-200 items-center justify-center group" />
       ),
     },
   ],
