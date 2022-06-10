@@ -3,7 +3,7 @@ import LinksHeader from '../../../Router/LinksHeader'
 
 export default function Header({ children }) {
   return (
-    <div className="flex-1 flex flex-col sticky top-0 z-50 shadow-sm bg-neutral bg-transparent">
+    <div className="flex-1 flex flex-col sticky top-0 z-10 shadow-sm bg-neutral bg-transparent">
       <div className=" pl-10 flex items-center justify-center   h-14  ">
         <Link
           to="/"

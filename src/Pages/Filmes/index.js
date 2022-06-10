@@ -98,11 +98,7 @@ export default function Filmes() {
       </div>
 
       <div className="max-w-full ">
-        {movies.length === 0 ? (
-          <Carousel />
-        ) : (
-          <Carousel imgs={loadImgs(movies)} />
-        )}
+        <Carousel imgs={loadImgs(movies)} />
       </div>
       <div className="flex items-center justify-start">
         <p className="font-title text-lg text-text d font-medium pl-12">
@@ -110,11 +106,7 @@ export default function Filmes() {
         </p>
       </div>
       <div className="max-w-full  ">
-        {movies.length === 0 ? (
-          <Carousel />
-        ) : (
-          <Carousel imgs={loadImgs(series)} />
-        )}
+        <Carousel imgs={loadImgs(series)} />
       </div>
     </div>
   )
