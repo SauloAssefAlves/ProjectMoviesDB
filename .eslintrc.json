@@ -21,6 +21,9 @@
     "react/button-has-type": "off",
     "react/jsx-filename-extension": "off",
     "spaced-comment": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "react/jsx-curly-brace-presence": "warn",
+    "react/no-array-index-key": "warn"
   }
 }

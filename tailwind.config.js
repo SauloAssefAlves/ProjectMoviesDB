@@ -1,11 +1,22 @@
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      colors: {
+        background: '#001E3C',
+        container: '#0A1929',
+        neutral: '#071A2F',
+        accent: '#007FFF',
+        accent_hover: '#0059B2',
+        text: '#D5E8FC',
+        text_hover: '#071A2F',
+        hover: '#334155',
+      },
       fontFamily: {
-        retro: ["VT323"],
+        body: ['Source Sans Pro'],
+        title: ['Lexend Deca'],
       },
     },
   },
   plugins: [],
-};
+}
