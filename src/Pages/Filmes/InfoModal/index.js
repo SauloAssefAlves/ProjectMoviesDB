@@ -56,7 +56,7 @@ export default function InfoModal({ info }) {
             setInformation(movie)
           }}
           key={movie.id}
-          className="  flex w-52 py-5 hover: relative rounded  items-center justify-center group  "
+          className="  flex w-52 py-5 relative rounded  items-center justify-center group  "
         >
           {movie.poster_path ? (
             <img
