@@ -16,6 +16,11 @@ module.exports = {
         body: ['Source Sans Pro'],
         title: ['Lexend Deca'],
       },
+      animation: {
+        'pulse-slow': 'pulse 2.5s linear infinite',
+        'pulse-medium': 'pulse 2s linear infinite',
+        'pulse-high': 'pulse 1.5s linear infinite',
+      },
     },
   },
   plugins: [],

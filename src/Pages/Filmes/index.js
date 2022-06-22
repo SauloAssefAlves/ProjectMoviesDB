@@ -3,11 +3,13 @@ import { useCallback, useEffect, lazy, useState, Suspense } from 'react'
 import apiMovies from '../../services/apiMovies'
 
 import Carousel from '../../Components/Carosuel'
-import Modal from '../../Components/Modal'
 import InfoModal from './InfoModal'
+import Modal from '../../Components/Modal'
+import Loader from '../../Components/Loader'
 
 //{``https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filme.title}
 export default function Filmes() {
+  const [loader, setLoader] = useState('LOADING')
   const [movies, setMovies] = useState([])
   const [series, setSeries] = useState([])
   const [isOpenModal, setIsOpenModal] = useState(false)
@@ -53,8 +55,10 @@ export default function Filmes() {
       .then((res) => {
         setMovies(res[0])
         setSeries(res[1])
+        setLoader('DONE')
       })
       .catch((err) => {
+        setLoader('ERROR')
         console.log(err)
       })
   }, [])
@@ -71,7 +75,7 @@ export default function Filmes() {
         <button
           onClick={() => handleClickImg(movie)}
           key={movie.id}
-          className="  flex w-52 h-80 hover: relative rounded  items-center justify-center group  "
+          className="  flex w-52 h-80  relative rounded  items-center justify-center group  "
         >
           {movie.poster_path ? (
             <img
@@ -92,30 +96,33 @@ export default function Filmes() {
     }))
 
   return (
-    <div className="flex flex-col justify-center max-w-full ">
-      {isOpenModal && (
-        <Modal setIsOpen={setIsOpenModal}>
-          <InfoModal info={details} />
-        </Modal>
-      )}
+    <Loader status={loader}>
+      <div className="flex flex-col justify-start items-start max-w-full ">
+        {isOpenModal && (
+          <Modal setIsOpen={setIsOpenModal}>
+            <InfoModal info={details} />
+          </Modal>
+        )}
 
-      <div className="flex items-center justify-start">
-        <p className="font-title text-lg text-text d font-medium pl-12">
-          Filmes em Cartaz
-        </p>
-      </div>
+        <div className="flex items-center justify-start">
+          <p className="font-title text-lg text-text d font-medium pl-12">
+            Filmes em Cartaz
+          </p>
+        </div>
 
-      <div className="max-w-full ">
-        <Carousel imgs={loadImgs(movies)} />
+        <div className="max-w-full ">
+          <Carousel imgs={loadImgs(movies)} />
+        </div>
+
+        <div className="flex items-center justify-start">
+          <p className="font-title text-lg text-text d font-medium pl-12">
+            Tv Shows
+          </p>
+        </div>
+        <div className="max-w-full  ">
+          <Carousel imgs={loadImgs(series)} />
+        </div>
       </div>
-      <div className="flex items-center justify-start">
-        <p className="font-title text-lg text-text d font-medium pl-12">
-          Tv Shows
-        </p>
-      </div>
-      <div className="max-w-full  ">
-        <Carousel imgs={loadImgs(series)} />
-      </div>
-    </div>
+    </Loader>
   )
 }

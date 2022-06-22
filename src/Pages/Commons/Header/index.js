@@ -4,15 +4,12 @@ import LinksHeader from '../../../Router/LinksHeader'
 export default function Header({ children }) {
   return (
     <div className="flex-1 flex flex-col sticky top-0 z-10 shadow-sm bg-neutral bg-transparent">
-      <div className=" pl-10 flex items-center justify-center   h-14  ">
-        <Link
-          to="/"
-          className="text-blue-500 hover:text-blue-400 duration-200 font-title font-bold text-2xl"
-        >
+      <div className="  flex items-center justify-center   h-14  ">
+        <div className="text-blue-500  duration-200 font-title font-bold text-2xl">
           Project
-        </Link>
+        </div>
 
-        <div className="flex   items-center justify-center  space-x-6  pl-6">
+        {/* <div className="flex   items-center justify-center  space-x-6  pl-6">
           {LinksHeader.map((page) => (
             <Link
               key={page.name}
@@ -25,8 +22,7 @@ export default function Header({ children }) {
               </div>
             </Link>
           ))}
-        </div>
-        <div className="flex flex-1" />
+        </div> */}
       </div>
     </div>
   )
