@@ -3,9 +3,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#001E3C',
+        background: '#272829',
         container: '#0A1929',
-        neutral: '#071A2F',
+        neutral: '#1d2530',
         accent: '#007FFF',
         accent_hover: '#0059B2',
         text: '#D5E8FC',

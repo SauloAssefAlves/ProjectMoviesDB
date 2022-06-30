@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from 'react'
 import { StarIcon, CalendarIcon } from '@heroicons/react/solid'
 import Carousel from '../../../Components/Carosuel'
 import apiMovies from '../../../services/apiMovies'
+import { getGenre } from '../utils'
 
 export default function InfoModal({ info }) {
   const [information, setInformation] = useState(info)
@@ -12,16 +13,12 @@ export default function InfoModal({ info }) {
     if (information?.title?.length >= 40) {
       setChangeTitleSize(true)
     }
-
-    if (information?.name?.length >= 40) {
-      setChangeTitleSize(true)
-    }
   }, [information])
 
   useEffect(() => {
     const similarShows = new Promise((resolve, reject) => {
       apiMovies
-        .get(`movie/${information.genre_ids[0]}/similar`, {
+        .get(`movie/${information.id}/similar`, {
           params: {
             api_key: '18837df4b81f4d167d64ac8bc77f7eae',
             language: 'pt-BR',
@@ -110,15 +107,24 @@ export default function InfoModal({ info }) {
               changetitleSize ? 'text-3xl' : 'text-4xl'
             }  font-title font-bold`}
           >
-            {information?.title} {information?.name}
+            {information?.title}
           </p>
           <div className="flex pt-2">
             <div className="flex items-center justify-center pr-4">
               <CalendarIcon className="w-6 text-text" />
               <p className="text-text font-light font-title pl-2 ">
                 {dateFormat(information.release_date)}
-                {dateFormat(information.first_air_date)}
               </p>
+            </div>
+            <div className="flex items-center justify-center pr-2 ">
+              {getGenre(information.genre_ids).map((genres, id) => (
+                <p key={genres} className="text-text text-sm align-bottom">
+                  &nbsp;
+                  {genres}
+                  &nbsp;
+                  {id < information.genre_ids.length - 1 && '|'}
+                </p>
+              ))}
             </div>
             <div className="flex justify-center">
               <StarIcon className="w-6 text-yellow-300" />
