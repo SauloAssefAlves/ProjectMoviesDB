@@ -44,7 +44,7 @@ export default function InfoModal({ info }) {
   }, [])
 
   useEffect(() => {})
-  const loadImgs = useCallback((data) =>
+  const loadImgs = (data) =>
     data.map((movie) => ({
       id: movie.id,
       imgs: (
@@ -53,11 +53,11 @@ export default function InfoModal({ info }) {
             setInformation(movie)
           }}
           key={movie.id}
-          className="  flex w-52 py-5 relative rounded  items-center justify-center group  "
+          className="  flex w-52  py-5 relative rounded  items-center justify-center group  "
         >
           {movie.poster_path ? (
             <img
-              className="transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500  rounded flex flex-1 items-stretch   duration-500"
+              className="transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500  rounded flex flex-1 items-stretch max-h-72  duration-500"
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt={movie.title}
             />
@@ -72,7 +72,6 @@ export default function InfoModal({ info }) {
         </button>
       ),
     }))
-  )
 
   function dateFormat(dateStr) {
     if (!dateStr) {
