@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="./public/images/luby-logo.png" width="200" />
   <h1>Project Movies Data Base</h1>
 </div>
 
@@ -38,13 +37,6 @@ yarn start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-# 🍷 Build
-
-```bash
-npm run build
-# or
-yarn build
 ```
 
 # 🚀 Techs
